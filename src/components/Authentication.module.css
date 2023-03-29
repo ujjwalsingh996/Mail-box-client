@@ -1,0 +1,57 @@
+.parent{
+    display: grid;
+    width:100%;
+    height:100%;
+    align-items: center;
+    justify-content: center;
+    flex-direction:column;
+    background-position: center;    
+}
+.container{
+    display: grid;
+    
+    width: 400px;
+    height:350px;
+    margin-right: 50%;
+    
+}
+.input {
+    margin: 2rem auto;
+    padding: 1rem;
+    width: 100%;
+    max-width: 40rem;
+  }
+  
+.input input{
+    margin-top: 20px;
+    padding: 15px;
+    width:300px;
+    border-radius: 10px;
+}
+.child1 button{
+    font: inherit;
+    width: 50;
+    font-weight: bolder;
+    padding: 0.25rem 1rem;
+    margin: auto;
+    text-align: center;
+    display: grid;
+    margin-top: auto;
+}
+.child2{
+    font: inherit;
+    width: 50;
+    font-weight: bolder;
+    padding: 0.25rem 1rem;
+    margin:auto;
+    text-align: center;
+    display: grid;
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+.child1 h3{
+    color:black;
+    
+        text-align: center;
+    
+}

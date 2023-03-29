@@ -51,13 +51,11 @@ const Sidebar = () => {
 
   return (
     <div className={classes.container}>
-      <div>All Mails</div>
+      <h3>All Mails</h3>
       <div clasName={classes.button}>
         <Link to="/">
           <button
             type="submit"
-            className="btn btn-success "
-            style={{ marginTop: "20px", width: "130px" }}
           >
             Compose Mail
           </button>
@@ -65,8 +63,6 @@ const Sidebar = () => {
         <Link to="/Inbox">
           <button
             type="submit"
-            className="btn btn-success"
-            style={{ marginTop: "20px", width: "130px" }}
           >
             Inbox
           </button>
@@ -75,16 +71,12 @@ const Sidebar = () => {
         <Link to="/SentBox">
           <button
             type="submit"
-            className="btn btn-success "
-            style={{ marginTop: "20px", width: "130px" }}
           >
             Sent Box
           </button>
         </Link>
         <button
           type="button"
-          class="btn btn-success"
-          style={{ marginTop: "20px", width: "130px" }}
           onClick={logoutHandler}
         >
           Logout
