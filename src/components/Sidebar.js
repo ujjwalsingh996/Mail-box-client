@@ -68,9 +68,9 @@ const Sidebar = () => {
             className="btn btn-success"
             style={{ marginTop: "20px", width: "130px" }}
           >
-            Inbox {unread}
+            Inbox
           </button>
-         
+          {unread}
         </Link>
         <Link to="/SentBox">
           <button
