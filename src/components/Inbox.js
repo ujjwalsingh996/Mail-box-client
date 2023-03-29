@@ -47,9 +47,9 @@ const Inbox = () => {
     deleteData(id)
   }
 
-  // useEffect(() => {
-  //   getData();
-  // }, []);
+//   useEffect(() => {
+//     getData();
+//   }, []);
 
   return (
     <div className={classes.parent}>
