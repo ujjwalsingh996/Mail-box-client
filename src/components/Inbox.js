@@ -3,14 +3,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { InboxActions } from "../ReduxStore/InboxReducer";
 // import { Link } from 'react-router-dom'
-import classes from "./Inbox.module.css";
+import "./Inbox.css";
 import Sidebar from "./Sidebar";
 
 const Inbox = () => {
   const dispatch = useDispatch();
   const inboxData = useSelector((state) => state.inboxReducer.inboxData);
 
-  let url = "https://mailbox-f7b85-default-rtdb.firebaseio.com";
+  let url = "https://auth-et-default-rtdb.firebaseio.com  ";
   const email = localStorage.getItem("email").replace(/['@','.']/g, "");
   // const getData = async () => {
   //   try {
@@ -33,38 +33,38 @@ const Inbox = () => {
   //   }
   // };
 
-  const deleteData=async(id)=>{
+  const deleteData = async (id) => {
     try {
-      const response=await fetch(`${url}/Inbox/${email}/${id}.json`,{
-        method:'DELETE'
-      })
-      dispatch(InboxActions.updateGet())
+      const response = await fetch(`${url}/Inbox/${email}/${id}.json`, {
+        method: "DELETE",
+      });
+      dispatch(InboxActions.updateGet());
     } catch (error) {
       console.log(error);
     }
-  }
-  const deleteHandler=(id)=>{
-    deleteData(id)
-  }
+  };
+  const deleteHandler = (id) => {
+    deleteData(id);
+  };
 
-//   useEffect(() => {
-//     getData();
-//   }, []);
+  //   useEffect(() => {
+  //     getData();
+  //   }, []);
 
   return (
-    <div className={classes.parent}>
-      <div className={classes.sidebar}>
-      <Sidebar />
+    <div className="parent">
+      <div className="sidebar">
+        <Sidebar />
       </div>
-      <div className={classes.tableParent}>
+      <div className="tableParent">
         <table className="table">
           <thead>
             <tr>
-              <th scope="col">#</th>
+              <th scope="col">S. No</th>
               <th scope="col">From </th>
               <th scope="col">Subject </th>
               <th scope="col">Message </th>
-              <th scope="col">Delete </th>
+              <th scope="col">Delete</th>
             </tr>
           </thead>
           <tbody>
@@ -72,10 +72,20 @@ const Inbox = () => {
               return (
                 <tr key={item.id}>
                   <td scope="row">{index + 1}</td>
-                  <td>{!item.read && <div style={{width:'10px', height:'10px', borderRadius:'100%',backgroundColor:'blue'}}></div>}{item.from}</td>
+                  <td>{item.from}</td>
                   <td>{item.subject}</td>
-                  <td><Link to= {`/Inbox/${item.id}`}>Open Message</Link></td>
-                  <td><button type="button" class="btn btn-danger" onClick={deleteHandler.bind(null, item.id)}>delete</button></td>
+                  <td>
+                    <Link to={`/Inbox/${item.id}`}>Click to Open</Link>
+                  </td>
+                  <td>
+                    <button
+                      type="button"
+                      className="btn"
+                      onClick={() => deleteHandler(item.id)}
+                    >
+                      Delete
+                    </button>
+                  </td>
                 </tr>
               );
             })}

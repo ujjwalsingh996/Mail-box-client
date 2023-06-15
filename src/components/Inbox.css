@@ -1,19 +1,17 @@
-/* Sidebar */
-.container {
+
+.parent {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     margin-top: 50px;
   }
-
-
-.sidebar {
+  
+  .sidebar {
     width: 25%;
     background-color: #f2f2f2;
     padding: 20px;
   }
   
-  /* Table */
   .tableParent {
     width: 75%;
   }
@@ -45,7 +43,6 @@
     cursor: pointer;
   }
   
-  /* Button */
   .btn {
     padding: 8px 12px;
     border-radius: 4px;
@@ -59,5 +56,13 @@
   
   .btn:hover {
     background-color: #c82333;
+  }
+  
+  .read-indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: blue;
+    margin-right: 10px;
   }
   

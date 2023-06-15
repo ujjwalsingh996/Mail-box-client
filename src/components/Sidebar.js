@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { AuthActions } from "../ReduxStore/AuthReducer";
 import { InboxActions } from "../ReduxStore/InboxReducer";
-import classes from "./Sidebar.module.css";
+import "./Sidebar.css";
 
 const Sidebar = () => {
   const dispatch = useDispatch();
@@ -11,7 +11,7 @@ const Sidebar = () => {
   const getRequest = useSelector((state) => state.inboxReducer.getReq);
   const [render, setRender] = useState(true);
 
-  let url = "https://mailbox-f7b85-default-rtdb.firebaseio.com";
+  let url = "https://auth-et-default-rtdb.firebaseio.com";
   const email = localStorage.getItem("email").replace(/['@','.']/g, "");
   const getData = async () => {
     try {
@@ -50,35 +50,21 @@ const Sidebar = () => {
   }, [getRequest, render]);
 
   return (
-    <div className={classes.container}>
-      <h3>All Mails</h3>
-      <div clasName={classes.button}>
-        <Link to="/">
-          <button
-            type="submit"
-          >
-            Compose Mail
+    <div className="container">
+      <h3 className="heading">All Mails</h3>
+      <div className="buttonGroup">
+        <Link to="/" className="link">
+          <button className="button">Compose Mail</button>
+        </Link>
+        <Link to="/Inbox" className="link">
+          <button className="button">
+            Inbox {unread && <span className="unread">{unread}</span>}
           </button>
         </Link>
-        <Link to="/Inbox">
-          <button
-            type="submit"
-          >
-            Inbox
-          </button>
-          {unread}
+        <Link to="/SentBox" className="link">
+          <button className="button">Sent Box</button>
         </Link>
-        <Link to="/SentBox">
-          <button
-            type="submit"
-          >
-            Sent Box
-          </button>
-        </Link>
-        <button
-          type="button"
-          onClick={logoutHandler}
-        >
+        <button type="button" className="logoutButton" onClick={logoutHandler}>
           Logout
         </button>
       </div>

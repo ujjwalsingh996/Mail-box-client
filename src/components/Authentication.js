@@ -29,14 +29,14 @@ const Authentication = () => {
   let url;
   const auth = async () => {
     if (confirmPassword !== Password) {
-      return alert("password and confirmpassword is different");
+      return alert("Password and Confirm Password are different");
     }
     if (login) {
       url =
-        "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDCbHcNqtDAJHrL7U_2YgYvyOjHTc60FoA";
+        "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBbRPGTnJU-_PGp3-QYjr7oO-rAhHYqEp4";
     } else {
       url =
-        "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDCbHcNqtDAJHrL7U_2YgYvyOjHTc60FoA";
+        "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBbRPGTnJU-_PGp3-QYjr7oO-rAhHYqEp4";
     }
     try {
       const response = await fetch(url, {
@@ -55,7 +55,7 @@ const Authentication = () => {
       if (data.error) {
         return alert(data.error.message);
       }
-      alert("login successful");
+      alert("Login Successful");
       dispatch(AuthActions.login());
       localStorage.setItem("email", email);
     } catch (error) {
@@ -72,7 +72,7 @@ const Authentication = () => {
     <div className={classes.parent}>
       <div className={classes.container}>
         <form onSubmit={submitHandler} className={classes.child1}>
-          <h1 className={classes.header}>{login ? 'LOGIN' : 'SIGN UP'}</h1>
+          <h1 className={classes.header}>{login ? "LOGIN" : "SIGN UP"}</h1>
           <div className={classes.input}>
             <input
               type="email"

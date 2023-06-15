@@ -11,10 +11,13 @@ const SentboxMessage = () => {
 
   const user = singleMessage[0].to;
 
+  console.log(singleMessage);
+
   return (
     <div className={classes.parent}>
       <div className={classes.msg}>
         <p>To:- {user}</p>
+        <p>Subject: {singleMessage[0].subject}</p>
         <p>Message:- {Msg}</p>
       </div>
     </div>
